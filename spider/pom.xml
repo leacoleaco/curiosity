@@ -63,6 +63,11 @@
             <artifactId>webmagic-extension</artifactId>
         </dependency>
 
+        <!--类似 Puppeteer -->
+        <dependency>
+            <groupId>io.github.fanyong920</groupId>
+            <artifactId>jvppeteer</artifactId>
+        </dependency>
 
     </dependencies>
 
