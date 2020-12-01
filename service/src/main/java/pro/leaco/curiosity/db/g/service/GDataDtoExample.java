@@ -942,103 +942,103 @@ public class GDataDtoExample {
             return (Criteria) this;
         }
 
-        public Criteria andAbstractIsNull() {
-            addCriterion("abstract is null");
+        public Criteria andAbsIsNull() {
+            addCriterion("`abs` is null");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractIsNotNull() {
-            addCriterion("abstract is not null");
+        public Criteria andAbsIsNotNull() {
+            addCriterion("`abs` is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractEqualTo(String value) {
-            addCriterion("abstract =", value, "abstract");
+        public Criteria andAbsEqualTo(String value) {
+            addCriterion("`abs` =", value, "abs");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractEqualToColumn(GDataDto.Column column) {
-            addCriterion("abstract = " + column.getEscapedColumnName());
+        public Criteria andAbsEqualToColumn(GDataDto.Column column) {
+            addCriterion("`abs` = " + column.getEscapedColumnName());
             return (Criteria) this;
         }
 
-        public Criteria andAbstractNotEqualTo(String value) {
-            addCriterion("abstract <>", value, "abstract");
+        public Criteria andAbsNotEqualTo(String value) {
+            addCriterion("`abs` <>", value, "abs");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractNotEqualToColumn(GDataDto.Column column) {
-            addCriterion("abstract <> " + column.getEscapedColumnName());
+        public Criteria andAbsNotEqualToColumn(GDataDto.Column column) {
+            addCriterion("`abs` <> " + column.getEscapedColumnName());
             return (Criteria) this;
         }
 
-        public Criteria andAbstractGreaterThan(String value) {
-            addCriterion("abstract >", value, "abstract");
+        public Criteria andAbsGreaterThan(String value) {
+            addCriterion("`abs` >", value, "abs");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractGreaterThanColumn(GDataDto.Column column) {
-            addCriterion("abstract > " + column.getEscapedColumnName());
+        public Criteria andAbsGreaterThanColumn(GDataDto.Column column) {
+            addCriterion("`abs` > " + column.getEscapedColumnName());
             return (Criteria) this;
         }
 
-        public Criteria andAbstractGreaterThanOrEqualTo(String value) {
-            addCriterion("abstract >=", value, "abstract");
+        public Criteria andAbsGreaterThanOrEqualTo(String value) {
+            addCriterion("`abs` >=", value, "abs");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractGreaterThanOrEqualToColumn(GDataDto.Column column) {
-            addCriterion("abstract >= " + column.getEscapedColumnName());
+        public Criteria andAbsGreaterThanOrEqualToColumn(GDataDto.Column column) {
+            addCriterion("`abs` >= " + column.getEscapedColumnName());
             return (Criteria) this;
         }
 
-        public Criteria andAbstractLessThan(String value) {
-            addCriterion("abstract <", value, "abstract");
+        public Criteria andAbsLessThan(String value) {
+            addCriterion("`abs` <", value, "abs");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractLessThanColumn(GDataDto.Column column) {
-            addCriterion("abstract < " + column.getEscapedColumnName());
+        public Criteria andAbsLessThanColumn(GDataDto.Column column) {
+            addCriterion("`abs` < " + column.getEscapedColumnName());
             return (Criteria) this;
         }
 
-        public Criteria andAbstractLessThanOrEqualTo(String value) {
-            addCriterion("abstract <=", value, "abstract");
+        public Criteria andAbsLessThanOrEqualTo(String value) {
+            addCriterion("`abs` <=", value, "abs");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractLessThanOrEqualToColumn(GDataDto.Column column) {
-            addCriterion("abstract <= " + column.getEscapedColumnName());
+        public Criteria andAbsLessThanOrEqualToColumn(GDataDto.Column column) {
+            addCriterion("`abs` <= " + column.getEscapedColumnName());
             return (Criteria) this;
         }
 
-        public Criteria andAbstractLike(String value) {
-            addCriterion("abstract like", value, "abstract");
+        public Criteria andAbsLike(String value) {
+            addCriterion("`abs` like", value, "abs");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractNotLike(String value) {
-            addCriterion("abstract not like", value, "abstract");
+        public Criteria andAbsNotLike(String value) {
+            addCriterion("`abs` not like", value, "abs");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractIn(List<String> values) {
-            addCriterion("abstract in", values, "abstract");
+        public Criteria andAbsIn(List<String> values) {
+            addCriterion("`abs` in", values, "abs");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractNotIn(List<String> values) {
-            addCriterion("abstract not in", values, "abstract");
+        public Criteria andAbsNotIn(List<String> values) {
+            addCriterion("`abs` not in", values, "abs");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractBetween(String value1, String value2) {
-            addCriterion("abstract between", value1, value2, "abstract");
+        public Criteria andAbsBetween(String value1, String value2) {
+            addCriterion("`abs` between", value1, value2, "abs");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractNotBetween(String value1, String value2) {
-            addCriterion("abstract not between", value1, value2, "abstract");
+        public Criteria andAbsNotBetween(String value1, String value2) {
+            addCriterion("`abs` not between", value1, value2, "abs");
             return (Criteria) this;
         }
 

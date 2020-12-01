@@ -1,0 +1,22 @@
+server:
+  port: 9095
+  servlet:
+    context-path: /
+
+spring:
+  profiles:
+    active: default
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/curiosity?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+
+pagehelper:
+  helperDialect:  mysql
+  reasonable: true
+  supportMethodsArguments:  true
+  params: count=countSql
+
+logging:
+  level: debug
