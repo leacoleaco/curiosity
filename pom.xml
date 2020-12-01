@@ -6,6 +6,7 @@
     <modules>
         <module>spider</module>
         <module>admin-api</module>
+        <module>service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
