@@ -38,6 +38,8 @@
             <groupId>us.codecraft</groupId>
             <artifactId>webmagic-extension</artifactId>
         </dependency>
+
+
     </dependencies>
 
 </project>

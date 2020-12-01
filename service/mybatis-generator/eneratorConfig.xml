@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <properties resource="mybatisGeneratorConfig.properties"/>
+
+    <context id="biz_mall" targetRuntime="MyBatis3" defaultModelType="flat">
+        <property name="autoDelimitKeywords" value="true"/>
+        <!--可以使用``包括字段名，避免字段名与sql保留字冲突报错-->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!-- 自动生成toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!-- 自动生成equals方法和hashcode方法 -->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <!-- 链式构建插件-->
+        <plugin type="com.fuyo.mybatis.generator.plugins.FluentBuilderMethodsPlugin"/>
+
+        <!-- 非官方插件 https://github.com/itfsw/mybatis-generator-plugin -->
+        <!-- 查询单条数据插件 -->
+        <plugin type="com.fuyo.mybatis.generator.plugins.SelectOneByExamplePlugin"/>
+        <!-- 查询结果选择性返回插件 -->
+        <plugin type="com.fuyo.mybatis.generator.plugins.SelectSelectivePlugin"/>
+        <!-- map方式高级查询插件 -->
+        <plugin type="com.fuyo.mybatis.generator.plugins.SelectMapPlugin"/>
+        <!-- Example Criteria 增强插件 -->
+        <plugin type="com.fuyo.mybatis.generator.plugins.ExampleEnhancedPlugin">
+            <!-- 是否支持已经过时的andIf方法（推荐使用when代替），默认支持 -->
+            <property name="enableAndIf" value="false"/>
+        </plugin>
+        <!-- 数据Model属性对应Column获取插件 -->
+        <plugin type="com.fuyo.mybatis.generator.plugins.ModelColumnPlugin"/>
+        <!-- 枚举列辅助对象生成插件-->
+        <plugin type="com.fuyo.mybatis.generator.plugins.EnumTypeStatusPlugin"/>
+        <!-- 逻辑删除插件 -->
+        <plugin type="com.fuyo.mybatis.generator.plugins.LogicalDeletePlugin">
+            <!-- 这里配置的是全局逻辑删除列和逻辑删除值，当然在table中配置的值会覆盖该全局配置 -->
+            <!-- 逻辑删除列类型只能为数字、字符串或者布尔类型 -->
+            <property name="logicalDeleteColumn" value="deleted"/>
+            <!-- 逻辑删除-已删除值 -->
+            <property name="logicalDeleteValue" value="1"/>
+            <!-- 逻辑删除-未删除值 -->
+            <property name="logicalUnDeleteValue" value="0"/>
+        </plugin>
+        <plugin type="com.fuyo.mybatis.generator.plugins.LimitPlugin">
+            <!-- 通过配置startPage影响Example中的page方法开始分页的页码，默认分页从0开始 -->
+            <property name="startPage" value="1"/>
+        </plugin>
+        <!-- 生成 从 url 构建example方法-->
+        <plugin type="com.fuyo.mybatis.generator.plugins.BuildWithUrlParamPlugin"/>
+
+        <commentGenerator type="com.fuyo.mybatis.generator.plugins.comment.CommentGenerator">
+            <property name="suppressDate" value="true"/>
+            <property name="addRemarkComments" value="true"/>
+            <!--            <property name="suppressAllComments" value="true"/>-->
+        </commentGenerator>
+
+        <!--数据库连接信息-->
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}"/>
+
+        <javaTypeResolver>
+            <property name="useJSR310Types" value="true"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="pro.leaco.curiosity.db.g.service" targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="pro.leaco.curiosity.db.g.dao" targetProject="src/main/resources"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="pro.leaco.curiosity.db.g.dao"
+                             targetProject="src/main/java"/>
+        <!--表名-->
+        <table tableName="biz_data" domainObjectName="GDataDto">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+    </context>
+</generatorConfiguration>
