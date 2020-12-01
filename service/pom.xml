@@ -9,14 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>admin-api</artifactId>
-    <description>数据管理分析系统API</description>
-    <dependencies>
-        <dependency>
-            <groupId>pro.leaco.curiosity</groupId>
-            <artifactId>service</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
+    <artifactId>service</artifactId>
+    <description>数据服务层</description>
+
 
 </project>

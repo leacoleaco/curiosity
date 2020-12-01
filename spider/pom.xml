@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>pro.leaco.curiosity</groupId>
+            <artifactId>service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>us.codecraft</groupId>
             <artifactId>webmagic-core</artifactId>
             <exclusions>
