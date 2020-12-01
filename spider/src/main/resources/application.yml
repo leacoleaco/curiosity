@@ -19,4 +19,5 @@ pagehelper:
   params: count=countSql
 
 logging:
-  level: debug
+  file:
+    path: logs
