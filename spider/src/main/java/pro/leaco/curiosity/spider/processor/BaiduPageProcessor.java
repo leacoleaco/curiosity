@@ -1,5 +1,6 @@
 package pro.leaco.curiosity.spider.processor;
 
+import org.apache.commons.lang3.StringUtils;
 import pro.leaco.curiosity.db.g.service.GDataDto;
 import pro.leaco.curiosity.spider.analysiser.Analysiser;
 import us.codecraft.webmagic.Page;
@@ -34,6 +35,7 @@ public class BaiduPageProcessor implements PageProcessor {
 
         List<GDataDto> collect = nodes.stream()
                 .map(this::collectData)
+                .filter(x-> StringUtils.isNotEmpty(x.getTitle()))
                 .collect(Collectors.toList());
 
 
@@ -45,10 +47,10 @@ public class BaiduPageProcessor implements PageProcessor {
     }
 
     private GDataDto collectData(Selectable s) {
-        String title = s.css(".t a").get();
-        String abs = s.css(".c-abstract").get();
+        String title = s.$(".t a").xpath("/a/text()").get();
+        String abs = s.$(".c-abstract").xpath("/div/text()").get();
         String data = s.get();
-        String url = s.css(".se_st_footer a").get();
+        String url = s.$(".se_st_footer a").xpath("/a/@href").get();
         Short type = 0;
         Integer ruleId = 0;
 

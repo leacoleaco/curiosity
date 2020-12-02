@@ -12,6 +12,7 @@ import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.downloader.Downloader;
+import us.codecraft.webmagic.selector.PlainText;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,11 @@ public class PuppeteerDownloader implements Downloader {
         ArrayList<String> argList = new ArrayList<>();
         //自动下载，第一次下载后不会再下载
         BrowserFetcher.downloadIfNotExist(null);
-        LaunchOptions options = new LaunchOptionsBuilder().withArgs(argList).withHeadless(false).build();
+        LaunchOptions options = new LaunchOptionsBuilder()
+                .withArgs(argList)
+                .withHeadless(false)
+                .withExecutablePath("/Users/like/Documents/chrome-mac/Chromium.app/Contents/MacOS/Chromium")
+                .build();
         argList.add("--no-sandbox");
         argList.add("--disable-setuid-sandbox");
         this.browser = Puppeteer.launch(options);
@@ -39,15 +44,22 @@ public class PuppeteerDownloader implements Downloader {
     public Page download(Request request, Task task) {
 
         com.ruiyun.jvppeteer.core.page.Page page = browser.newPage();
-
+        Page result = new Page();
+        result.setRequest(request);
+        result.setUrl(new PlainText(request.getUrl()));
         try {
             Response response = page.goTo(request.getUrl());
-
-            //TODO:
-            return new Page();
+            result.setDownloadSuccess(response.ok());
+            result.setStatusCode(response.status());
+            result.setBytes(response.buffer());
+            result.setRawText(response.text());
+            return result;
         } catch (InterruptedException e) {
             logger.error(e.getMessage(), e);
-            return null;
+            result.setDownloadSuccess(false);
+            result.setSkip(true);
+            result.setStatusCode(502);
+            return result;
         }
     }
 
