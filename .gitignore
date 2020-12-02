@@ -51,3 +51,5 @@ hs_err_pid*
 # Recommended template: Node.gitignore
 dist/
 
+.local-browser/
+logs/
