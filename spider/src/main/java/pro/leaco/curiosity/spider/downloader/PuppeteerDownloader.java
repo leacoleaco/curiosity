@@ -60,6 +60,12 @@ public class PuppeteerDownloader implements Downloader {
             result.setSkip(true);
             result.setStatusCode(502);
             return result;
+        } finally {
+            try {
+                page.close();
+            } catch (InterruptedException e) {
+                logger.error("关闭浏览器时受阻" + e.getMessage(), e);
+            }
         }
     }
 
