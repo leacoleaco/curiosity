@@ -3,6 +3,7 @@ package pro.leaco.curiosity.spider.analysiser.impl;
 import org.apache.commons.lang3.StringUtils;
 import pro.leaco.curiosity.db.g.service.GDataDto;
 import pro.leaco.curiosity.spider.analysiser.PageAnalysiser;
+import pro.leaco.curiosity.spider.analysiser.SearchConfig;
 import pro.leaco.curiosity.spider.vo.Data;
 import pro.leaco.curiosity.util.ListUtil;
 import us.codecraft.webmagic.Page;
@@ -12,7 +13,12 @@ import us.codecraft.webmagic.selector.Selectable;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class BaiduPageAnalysiser implements PageAnalysiser {
+public class BaiduPageAnalysiser extends PageAnalysiser {
+
+
+    public BaiduPageAnalysiser(SearchConfig searchConfig) {
+        super(searchConfig);
+    }
 
     @Override
     public boolean support(Page page) {
