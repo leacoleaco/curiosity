@@ -7,6 +7,11 @@ import us.codecraft.webmagic.Page;
 
 import java.util.List;
 
+/**
+ * 通用智能分析器
+ * <p>
+ * 使用关键词匹配可能可用的模块
+ */
 public class SmartPageAnalysiser extends PageAnalysiser {
 
     public SmartPageAnalysiser(SearchConfig searchConfig) {
