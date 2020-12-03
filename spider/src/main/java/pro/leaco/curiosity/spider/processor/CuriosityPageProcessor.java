@@ -26,7 +26,7 @@ public class CuriosityPageProcessor implements us.codecraft.webmagic.processor.P
     @Override
     public void process(Page page) {
         // 部分二：定义如何抽取页面信息，并保存下来
-        List<GDataDto> collect = pageAnalysiser.analysisPageDatas(page);
+        List<GDataDto> collect = pageAnalysiser.analysisInterestData(page);
         page.putField("result", collect);
 
 
