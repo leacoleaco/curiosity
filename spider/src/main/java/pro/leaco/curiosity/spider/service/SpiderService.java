@@ -4,9 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import pro.leaco.curiosity.spider.analysiser.PageAnalysisFactory;
-import pro.leaco.curiosity.spider.analysiser.impl.BaiduPageAnalysiser;
-import pro.leaco.curiosity.spider.downloader.PuppeteerDownloader;
-import pro.leaco.curiosity.spider.processor.CuriosityPageProcessor;
+import pro.leaco.curiosity.spider.magic.downloader.PuppeteerDownloader;
+import pro.leaco.curiosity.spider.magic.processor.CuriosityPageProcessor;
 import us.codecraft.webmagic.Spider;
 
 import javax.annotation.Resource;

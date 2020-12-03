@@ -1,4 +1,4 @@
-package pro.leaco.curiosity.spider.processor;
+package pro.leaco.curiosity.spider.magic.processor;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -6,8 +6,10 @@ import org.slf4j.LoggerFactory;
 import pro.leaco.curiosity.db.g.service.GDataDto;
 import pro.leaco.curiosity.spider.analysiser.PageAnalysisFactory;
 import pro.leaco.curiosity.spider.analysiser.PageAnalysiser;
-import pro.leaco.curiosity.util.ListUtil;
+import pro.leaco.curiosity.spider.magic.CuriosityRequest;
+import pro.leaco.curiosity.spider.vo.Data;
 import us.codecraft.webmagic.Page;
+import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Site;
 
 import java.util.List;
@@ -43,7 +45,7 @@ public class CuriosityPageProcessor implements us.codecraft.webmagic.processor.P
 
 
         // 部分二：定义如何抽取页面信息，并保存下来
-        List<GDataDto> collect = pageAnalysiser.analysisInterestData(page);
+        List<Data> collect = pageAnalysiser.analysisInterestData(page);
         page.putField("result", collect);
 
 
@@ -51,20 +53,39 @@ public class CuriosityPageProcessor implements us.codecraft.webmagic.processor.P
         boolean hasNext = false;
         List<String> nextUrls = pageAnalysiser.analysisNextUrl(page);
         if (nextUrls != null) {
-            page.addTargetRequests(nextUrls, 99999);
+            addTargetRequest(page, nextUrls, 99999);
             hasNext = true;
         }
         if (collect != null) {
             List<GDataDto> toUrls = collect.stream().filter(x -> StringUtils.isNotEmpty(x.getToUrl())).collect(Collectors.toList());
             if (!toUrls.isEmpty()) {
                 for (GDataDto toUrl : toUrls) {
-                    page.addTargetRequests(ListUtil.asList(toUrl.getToUrl()), toUrl.getPriority());
+                    addTargetRequest(page, toUrl.getToUrl(), toUrl.getPriority());
                 }
                 hasNext = true;
             }
         }
         page.setSkip(!hasNext);
 
+    }
+
+    private static void addTargetRequest(Page page, List<String> urls, long priority) {
+        if (urls == null) {
+            return;
+        }
+        for (String url : urls) {
+            addTargetRequest(page, url, priority);
+        }
+    }
+
+    private static void addTargetRequest(Page page, String url, long priority) {
+        if (!StringUtils.isBlank(url) && !url.equals("#") && !url.startsWith("javascript:")) {
+            CuriosityRequest request = new CuriosityRequest(url);
+            request.setPriority(priority);
+            //增加访问深度
+            request.setDeep(CuriosityRequest.getDeepValue(page.getRequest()) + 1);
+            page.addTargetRequest(request);
+        }
     }
 
 
