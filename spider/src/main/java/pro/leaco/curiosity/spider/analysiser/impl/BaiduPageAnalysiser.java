@@ -1,7 +1,8 @@
-package pro.leaco.curiosity.spider.analysiser;
+package pro.leaco.curiosity.spider.analysiser.impl;
 
 import org.apache.commons.lang3.StringUtils;
 import pro.leaco.curiosity.db.g.service.GDataDto;
+import pro.leaco.curiosity.spider.analysiser.PageAnalysiser;
 import pro.leaco.curiosity.spider.vo.Data;
 import pro.leaco.curiosity.util.ListUtil;
 import us.codecraft.webmagic.Page;
@@ -14,7 +15,16 @@ import java.util.stream.Collectors;
 public class BaiduPageAnalysiser implements PageAnalysiser {
 
     @Override
-    public List<GDataDto> analysisInterestData(Page page) {
+    public boolean support(Page page) {
+        String url = page.getRequest().getUrl();
+        if (url == null) {
+            return false;
+        }
+        return url.startsWith("https://www.baidu.com") || url.startsWith("http://www.baidu.com");
+    }
+
+    @Override
+    public List<Data> analysisInterestData(Page page) {
         List<Selectable> nodes = page.getHtml().css(".result").nodes();
         if (nodes == null) {
             return null;
@@ -31,9 +41,8 @@ public class BaiduPageAnalysiser implements PageAnalysiser {
         String data = s.get();
         String fromUrl = request.getUrl();
         String toUrl = s.$(".se_st_footer a").xpath("/a/@href").get();
-        Integer ruleId = 0;
 
-        Data result = new Data(title, abs, data, GDataDto.Type.REF, GDataDto.ContentType.TEXT, ruleId, fromUrl);
+        Data result = new Data(title, abs, data, GDataDto.Type.REF, GDataDto.ContentType.TEXT, fromUrl, this);
         result.setToUrl(toUrl);
         result.setPriority(0);
         return result;

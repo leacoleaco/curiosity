@@ -1,7 +1,10 @@
 package pro.leaco.curiosity.spider.processor;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pro.leaco.curiosity.db.g.service.GDataDto;
+import pro.leaco.curiosity.spider.analysiser.PageAnalysisFactory;
 import pro.leaco.curiosity.spider.analysiser.PageAnalysiser;
 import pro.leaco.curiosity.util.ListUtil;
 import us.codecraft.webmagic.Page;
@@ -12,19 +15,33 @@ import java.util.stream.Collectors;
 
 public class CuriosityPageProcessor implements us.codecraft.webmagic.processor.PageProcessor {
 
+    private static Logger logger = LoggerFactory.getLogger(CuriosityPageProcessor.class);
+
     // 部分一：抓取网站的相关配置，包括编码、抓取间隔、重试次数等
     private Site site = Site.me()
             .setRetryTimes(3)
             .setSleepTime(5000);
 
-    private final PageAnalysiser pageAnalysiser;
+    private final PageAnalysisFactory pageAnalysisFactory;
 
-    public CuriosityPageProcessor(PageAnalysiser pageAnalysiser) {
-        this.pageAnalysiser = pageAnalysiser;
+    public CuriosityPageProcessor(PageAnalysisFactory pageAnalysisFactory) {
+        this.pageAnalysisFactory = pageAnalysisFactory;
     }
 
     @Override
     public void process(Page page) {
+
+        if (page == null) {
+            return;
+        }
+
+        PageAnalysiser pageAnalysiser = pageAnalysisFactory.findBestAnalysiser(page);
+        if (pageAnalysiser == null) {
+            logger.debug("page:{}找不到合适的页面分析器", page);
+            return;
+        }
+
+
         // 部分二：定义如何抽取页面信息，并保存下来
         List<GDataDto> collect = pageAnalysiser.analysisInterestData(page);
         page.putField("result", collect);
