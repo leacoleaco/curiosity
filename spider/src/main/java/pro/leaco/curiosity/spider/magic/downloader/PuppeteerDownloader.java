@@ -1,4 +1,4 @@
-package pro.leaco.curiosity.spider.downloader;
+package pro.leaco.curiosity.spider.magic.downloader;
 
 import com.ruiyun.jvppeteer.core.Puppeteer;
 import com.ruiyun.jvppeteer.core.browser.Browser;

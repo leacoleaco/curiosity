@@ -42,7 +42,7 @@ public class BaiduPageAnalysiser implements PageAnalysiser {
         String fromUrl = request.getUrl();
         String toUrl = s.$(".se_st_footer a").xpath("/a/@href").get();
 
-        Data result = new Data(title, abs, data, GDataDto.Type.REF, GDataDto.ContentType.TEXT, fromUrl, this);
+        Data result = new Data(title, abs, data, GDataDto.Type.REF, GDataDto.ContentType.TEXT, fromUrl, this, request);
         result.setToUrl(toUrl);
         result.setPriority(0);
         return result;

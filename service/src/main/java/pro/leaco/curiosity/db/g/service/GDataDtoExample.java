@@ -1411,6 +1411,96 @@ public class GDataDtoExample {
             addCriterion("priority not between", value1, value2, "priority");
             return (Criteria) this;
         }
+
+        public Criteria andDeepIsNull() {
+            addCriterion("deep is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepIsNotNull() {
+            addCriterion("deep is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepEqualTo(Long value) {
+            addCriterion("deep =", value, "deep");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepEqualToColumn(GDataDto.Column column) {
+            addCriterion("deep = " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepNotEqualTo(Long value) {
+            addCriterion("deep <>", value, "deep");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepNotEqualToColumn(GDataDto.Column column) {
+            addCriterion("deep <> " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepGreaterThan(Long value) {
+            addCriterion("deep >", value, "deep");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepGreaterThanColumn(GDataDto.Column column) {
+            addCriterion("deep > " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepGreaterThanOrEqualTo(Long value) {
+            addCriterion("deep >=", value, "deep");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepGreaterThanOrEqualToColumn(GDataDto.Column column) {
+            addCriterion("deep >= " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepLessThan(Long value) {
+            addCriterion("deep <", value, "deep");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepLessThanColumn(GDataDto.Column column) {
+            addCriterion("deep < " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepLessThanOrEqualTo(Long value) {
+            addCriterion("deep <=", value, "deep");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepLessThanOrEqualToColumn(GDataDto.Column column) {
+            addCriterion("deep <= " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepIn(List<Long> values) {
+            addCriterion("deep in", values, "deep");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepNotIn(List<Long> values) {
+            addCriterion("deep not in", values, "deep");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepBetween(Long value1, Long value2) {
+            addCriterion("deep between", value1, value2, "deep");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeepNotBetween(Long value1, Long value2) {
+            addCriterion("deep not between", value1, value2, "deep");
+            return (Criteria) this;
+        }
     }
 
     /**
