@@ -12,7 +12,7 @@ public interface PageAnalysiser {
      * @param page
      * @return
      */
-    List<GDataDto> analysisPageDatas(Page page);
+    List<GDataDto> analysisInterestData(Page page);
 
     /**
      * 检测下一页地址
