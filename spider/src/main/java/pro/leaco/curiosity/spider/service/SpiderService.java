@@ -3,7 +3,8 @@ package pro.leaco.curiosity.spider.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import pro.leaco.curiosity.spider.analysiser.BaiduPageAnalysiser;
+import pro.leaco.curiosity.spider.analysiser.PageAnalysisFactory;
+import pro.leaco.curiosity.spider.analysiser.impl.BaiduPageAnalysiser;
 import pro.leaco.curiosity.spider.downloader.PuppeteerDownloader;
 import pro.leaco.curiosity.spider.processor.CuriosityPageProcessor;
 import us.codecraft.webmagic.Spider;
@@ -20,19 +21,21 @@ public class SpiderService {
     @Resource
     private DataService dataService;
 
+    PageAnalysisFactory pageAnalysisFactory = new PageAnalysisFactory();
+
     /**
      * 开始抓取网页
      */
     public void grap(String searchWord) {
         try {
-            Spider.create(new CuriosityPageProcessor(new BaiduPageAnalysiser()))
+            Spider.create(new CuriosityPageProcessor(pageAnalysisFactory))
                     .setDownloader(new PuppeteerDownloader())
                     //设置爬取的开始网页
                     .addUrl("https://www.baidu.com/s?wd=" + searchWord)
                     //设置爬取数据后进入的pipeline
                     .addPipeline(dataService)
                     //设置线程
-                    .thread(5)
+                    .thread(1)
                     .run();
         } catch (InterruptedException | ExecutionException | IOException e) {
             logger.error(e.getMessage(), e);

@@ -1222,93 +1222,103 @@ public class GDataDtoExample {
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdIsNull() {
-            addCriterion("rule_id is null");
+        public Criteria andAnalysiserIsNull() {
+            addCriterion("analysiser is null");
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdIsNotNull() {
-            addCriterion("rule_id is not null");
+        public Criteria andAnalysiserIsNotNull() {
+            addCriterion("analysiser is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdEqualTo(Integer value) {
-            addCriterion("rule_id =", value, "ruleId");
+        public Criteria andAnalysiserEqualTo(String value) {
+            addCriterion("analysiser =", value, "analysiser");
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdEqualToColumn(GDataDto.Column column) {
-            addCriterion("rule_id = " + column.getEscapedColumnName());
+        public Criteria andAnalysiserEqualToColumn(GDataDto.Column column) {
+            addCriterion("analysiser = " + column.getEscapedColumnName());
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdNotEqualTo(Integer value) {
-            addCriterion("rule_id <>", value, "ruleId");
+        public Criteria andAnalysiserNotEqualTo(String value) {
+            addCriterion("analysiser <>", value, "analysiser");
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdNotEqualToColumn(GDataDto.Column column) {
-            addCriterion("rule_id <> " + column.getEscapedColumnName());
+        public Criteria andAnalysiserNotEqualToColumn(GDataDto.Column column) {
+            addCriterion("analysiser <> " + column.getEscapedColumnName());
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdGreaterThan(Integer value) {
-            addCriterion("rule_id >", value, "ruleId");
+        public Criteria andAnalysiserGreaterThan(String value) {
+            addCriterion("analysiser >", value, "analysiser");
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdGreaterThanColumn(GDataDto.Column column) {
-            addCriterion("rule_id > " + column.getEscapedColumnName());
+        public Criteria andAnalysiserGreaterThanColumn(GDataDto.Column column) {
+            addCriterion("analysiser > " + column.getEscapedColumnName());
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("rule_id >=", value, "ruleId");
+        public Criteria andAnalysiserGreaterThanOrEqualTo(String value) {
+            addCriterion("analysiser >=", value, "analysiser");
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdGreaterThanOrEqualToColumn(GDataDto.Column column) {
-            addCriterion("rule_id >= " + column.getEscapedColumnName());
+        public Criteria andAnalysiserGreaterThanOrEqualToColumn(GDataDto.Column column) {
+            addCriterion("analysiser >= " + column.getEscapedColumnName());
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdLessThan(Integer value) {
-            addCriterion("rule_id <", value, "ruleId");
+        public Criteria andAnalysiserLessThan(String value) {
+            addCriterion("analysiser <", value, "analysiser");
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdLessThanColumn(GDataDto.Column column) {
-            addCriterion("rule_id < " + column.getEscapedColumnName());
+        public Criteria andAnalysiserLessThanColumn(GDataDto.Column column) {
+            addCriterion("analysiser < " + column.getEscapedColumnName());
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdLessThanOrEqualTo(Integer value) {
-            addCriterion("rule_id <=", value, "ruleId");
+        public Criteria andAnalysiserLessThanOrEqualTo(String value) {
+            addCriterion("analysiser <=", value, "analysiser");
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdLessThanOrEqualToColumn(GDataDto.Column column) {
-            addCriterion("rule_id <= " + column.getEscapedColumnName());
+        public Criteria andAnalysiserLessThanOrEqualToColumn(GDataDto.Column column) {
+            addCriterion("analysiser <= " + column.getEscapedColumnName());
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdIn(List<Integer> values) {
-            addCriterion("rule_id in", values, "ruleId");
+        public Criteria andAnalysiserLike(String value) {
+            addCriterion("analysiser like", value, "analysiser");
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdNotIn(List<Integer> values) {
-            addCriterion("rule_id not in", values, "ruleId");
+        public Criteria andAnalysiserNotLike(String value) {
+            addCriterion("analysiser not like", value, "analysiser");
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdBetween(Integer value1, Integer value2) {
-            addCriterion("rule_id between", value1, value2, "ruleId");
+        public Criteria andAnalysiserIn(List<String> values) {
+            addCriterion("analysiser in", values, "analysiser");
             return (Criteria) this;
         }
 
-        public Criteria andRuleIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("rule_id not between", value1, value2, "ruleId");
+        public Criteria andAnalysiserNotIn(List<String> values) {
+            addCriterion("analysiser not in", values, "analysiser");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnalysiserBetween(String value1, String value2) {
+            addCriterion("analysiser between", value1, value2, "analysiser");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnalysiserNotBetween(String value1, String value2) {
+            addCriterion("analysiser not between", value1, value2, "analysiser");
             return (Criteria) this;
         }
 
