@@ -1132,6 +1132,96 @@ public class GDataDtoExample {
             return (Criteria) this;
         }
 
+        public Criteria andContentTypeIsNull() {
+            addCriterion("content_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeIsNotNull() {
+            addCriterion("content_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeEqualTo(Short value) {
+            addCriterion("content_type =", value, "contentType");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeEqualToColumn(GDataDto.Column column) {
+            addCriterion("content_type = " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeNotEqualTo(Short value) {
+            addCriterion("content_type <>", value, "contentType");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeNotEqualToColumn(GDataDto.Column column) {
+            addCriterion("content_type <> " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeGreaterThan(Short value) {
+            addCriterion("content_type >", value, "contentType");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeGreaterThanColumn(GDataDto.Column column) {
+            addCriterion("content_type > " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeGreaterThanOrEqualTo(Short value) {
+            addCriterion("content_type >=", value, "contentType");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeGreaterThanOrEqualToColumn(GDataDto.Column column) {
+            addCriterion("content_type >= " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeLessThan(Short value) {
+            addCriterion("content_type <", value, "contentType");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeLessThanColumn(GDataDto.Column column) {
+            addCriterion("content_type < " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeLessThanOrEqualTo(Short value) {
+            addCriterion("content_type <=", value, "contentType");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeLessThanOrEqualToColumn(GDataDto.Column column) {
+            addCriterion("content_type <= " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeIn(List<Short> values) {
+            addCriterion("content_type in", values, "contentType");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeNotIn(List<Short> values) {
+            addCriterion("content_type not in", values, "contentType");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeBetween(Short value1, Short value2) {
+            addCriterion("content_type between", value1, value2, "contentType");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentTypeNotBetween(Short value1, Short value2) {
+            addCriterion("content_type not between", value1, value2, "contentType");
+            return (Criteria) this;
+        }
+
         public Criteria andRuleIdIsNull() {
             addCriterion("rule_id is null");
             return (Criteria) this;
@@ -1219,6 +1309,96 @@ public class GDataDtoExample {
 
         public Criteria andRuleIdNotBetween(Integer value1, Integer value2) {
             addCriterion("rule_id not between", value1, value2, "ruleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityIsNull() {
+            addCriterion("priority is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityIsNotNull() {
+            addCriterion("priority is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityEqualTo(Integer value) {
+            addCriterion("priority =", value, "priority");
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityEqualToColumn(GDataDto.Column column) {
+            addCriterion("priority = " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityNotEqualTo(Integer value) {
+            addCriterion("priority <>", value, "priority");
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityNotEqualToColumn(GDataDto.Column column) {
+            addCriterion("priority <> " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityGreaterThan(Integer value) {
+            addCriterion("priority >", value, "priority");
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityGreaterThanColumn(GDataDto.Column column) {
+            addCriterion("priority > " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityGreaterThanOrEqualTo(Integer value) {
+            addCriterion("priority >=", value, "priority");
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityGreaterThanOrEqualToColumn(GDataDto.Column column) {
+            addCriterion("priority >= " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityLessThan(Integer value) {
+            addCriterion("priority <", value, "priority");
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityLessThanColumn(GDataDto.Column column) {
+            addCriterion("priority < " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityLessThanOrEqualTo(Integer value) {
+            addCriterion("priority <=", value, "priority");
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityLessThanOrEqualToColumn(GDataDto.Column column) {
+            addCriterion("priority <= " + column.getEscapedColumnName());
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityIn(List<Integer> values) {
+            addCriterion("priority in", values, "priority");
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityNotIn(List<Integer> values) {
+            addCriterion("priority not in", values, "priority");
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityBetween(Integer value1, Integer value2) {
+            addCriterion("priority between", value1, value2, "priority");
+            return (Criteria) this;
+        }
+
+        public Criteria andPriorityNotBetween(Integer value1, Integer value2) {
+            addCriterion("priority not between", value1, value2, "priority");
             return (Criteria) this;
         }
     }
