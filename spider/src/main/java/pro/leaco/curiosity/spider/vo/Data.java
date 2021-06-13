@@ -6,8 +6,6 @@ import pro.leaco.curiosity.spider.magic.CuriosityRequest;
 import us.codecraft.webmagic.Request;
 
 public class Data extends GDataDto {
-
-
     public Data(
             String title,
             String abs,
@@ -27,6 +25,4 @@ public class Data extends GDataDto {
                 .withAnalysiser(analysiser.getClass().getSimpleName())
                 .withDeep(CuriosityRequest.getDeepValue(request));
     }
-
-
 }
